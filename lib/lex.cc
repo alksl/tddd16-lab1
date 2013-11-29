@@ -52,7 +52,7 @@ char Scanner::GetChar(void)
     }
     else
     {
-        cin.sync_with_stdio();
+        std::cin.sync_with_stdio();
         c = getc(stdin);
         if (c == EOF)
             return -1;
@@ -86,6 +86,7 @@ Token Scanner::Scan(void)
     while (1)
     {
         c = GetChar();
+
 
         switch (state)
         {
@@ -227,7 +228,7 @@ Token Scanner::Scan(void)
             break;
 
         default:
-            cerr << "Scanner bug. Entered unknown state " << state << '\n';
+            std::cerr << "Scanner bug. Entered unknown state " << state << '\n';
             throw ScannerError("Unkown state");
         }
     }
@@ -243,7 +244,7 @@ void Scanner::Accumulate(char c)
     if (position >= kMaxTokenLength)
     {
         valueBuffer[kMaxTokenLength - 1] = 0;
-        cerr << "Token too long: " << valueBuffer << '\n';
+        std::cerr << "Token too long: " << valueBuffer << '\n';
         throw ScannerError("Token too long");
     }
     else
@@ -280,7 +281,7 @@ char *Scanner::SymbolValue(void)
 }
 
 
-ostream& operator<<(ostream& s, Token &t)
+std::ostream& operator<<(std::ostream& s, Token &t)
 {
     switch (t.type)
     {
@@ -295,7 +296,7 @@ ostream& operator<<(ostream& s, Token &t)
     }
 }
 
-ostream& operator<<(ostream& s, ScannerError& e)
+std::ostream& operator<<(std::ostream& s, ScannerError& e)
 {
     if (e.errorCharacter)
     {

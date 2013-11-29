@@ -1,7 +1,7 @@
 #ifndef KOMP_LEX_H
 #define KOMP_LEX_H
 
-#include <iostream.h>
+#include <iostream>
 
 //
 // In a real-life scanner, tokens should be able to have arbitrary
@@ -120,7 +120,7 @@ public:
     Scanner() { haveBuffered = 0; Reset(); };
 };
 
-ostream& operator<<(ostream&, Token &);
-ostream& operator<<(ostream&, ScannerError &);
+std::ostream& operator<<(std::ostream&, Token &);
+std::ostream& operator<<(std::ostream&, ScannerError &);
 
 #endif
