@@ -81,12 +81,12 @@ void Scanner::PutbackChar(unsigned char c)
 Token Scanner::Scan(void)
 {
     int c;
-    
+
     Reset();
     while (1)
     {
         c = GetChar();
-        
+
         switch (state)
         {
         case 0:                     // Initial state
