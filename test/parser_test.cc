@@ -4,6 +4,8 @@
 #include <gtest/gtest.h>
 #include <parser.hh>
 
+#define ABS_ERROR 0.005
+
 void load_expr_to_stdin(std::string expression) {
   std::stringstream file_path;
   file_path << SOURCE_DIR;
@@ -73,8 +75,56 @@ TEST(Parser, parse_e) {
   ASSERT_EQ(2.71828183, parser.Parse());
 }
 
-TEST(Parser, parse_function_call) {
-  load_expr_to_stdin("function_call");
+TEST(Parser, parse_ln) {
+  load_expr_to_stdin("ln");
   Parser parser;
-  ASSERT_EQ(1.0, parser.Parse());
+  ASSERT_NEAR(1.0, parser.Parse(), ABS_ERROR);
+}
+
+TEST(Parser, parse_log) {
+  load_expr_to_stdin("log");
+  Parser parser;
+  ASSERT_NEAR(1.0, parser.Parse(), ABS_ERROR);
+}
+
+TEST(Parser, parse_exp) {
+  load_expr_to_stdin("exp");
+  Parser parser;
+  ASSERT_NEAR(7.389, parser.Parse(), ABS_ERROR);
+}
+
+TEST(Parser, parse_sin) {
+  load_expr_to_stdin("sin");
+  Parser parser;
+  ASSERT_NEAR(1.0, parser.Parse(), ABS_ERROR);
+}
+
+TEST(Parser, parse_cos) {
+  load_expr_to_stdin("cos");
+  Parser parser;
+  ASSERT_NEAR(1.0, parser.Parse(), ABS_ERROR);
+}
+
+TEST(Parser, parse_tan) {
+  load_expr_to_stdin("tan");
+  Parser parser;
+  ASSERT_NEAR(1.0, parser.Parse(), ABS_ERROR);
+}
+
+TEST(Parser, parse_arcsin) {
+  load_expr_to_stdin("arcsin");
+  Parser parser;
+  ASSERT_NEAR(0.523599, parser.Parse(), ABS_ERROR);
+}
+
+TEST(Parser, parse_arcos) {
+  load_expr_to_stdin("arccos");
+  Parser parser;
+  ASSERT_NEAR(1.04720, parser.Parse(), ABS_ERROR);
+}
+
+TEST(Parser, parse_arctan) {
+  load_expr_to_stdin("arctan");
+  Parser parser;
+  ASSERT_NEAR(0.785398, parser.Parse(), ABS_ERROR);
 }

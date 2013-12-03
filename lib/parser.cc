@@ -144,6 +144,40 @@ double Parser::DoFunctionCall(std::string identifier, double arg) {
   if(identifier == "log") {
     return log10(arg);
   }
+
+  if(identifier == "ln") {
+    return log(arg);
+  }
+
+  if(identifier == "exp") {
+    return exp(arg);
+  }
+
+  if(identifier == "sin") {
+    return sin(arg);
+  }
+
+  if(identifier == "cos") {
+    return cos(arg);
+  }
+
+  if(identifier == "tan") {
+    return tan(arg);
+  }
+
+  if(identifier == "arcsin") {
+    return asin(arg);
+  }
+
+  if(identifier == "arccos") {
+    return acos(arg);
+  }
+
+  if(identifier == "arctan") {
+    return atan(arg);
+  }
+
+  throw ParserError("DoFunctionCall could not match identfier");
 }
 
 void Parser::AssertRightParen() {
