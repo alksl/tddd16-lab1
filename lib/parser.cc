@@ -62,6 +62,7 @@ void Parser::ParseExpressionCont() {
     ParseTerm();
     ParseExpressionCont();
     value = saved_value + value;
+
     return;
   } else if(token.type == kMinus) {
     ParseTerm();
@@ -116,7 +117,11 @@ void Parser::ParseFactor() {
 
 void Parser::ParseBase() {
   Token token = ScanToken();
-  if(token.type == kNumber) {
+  if(token.type == kMinus) {
+    ParseExpression();
+    value = -1*value;
+    return;
+  } else if(token.type == kNumber) {
     value =  token.numberValue;
     return;
   }

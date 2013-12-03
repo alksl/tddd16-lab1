@@ -48,3 +48,9 @@ TEST(Parser, parse_exponentiation) {
   Parser parser;
   ASSERT_EQ(8.0, parser.Parse());
 }
+
+TEST(Parser, parse_negation) {
+  load_expr_to_stdin("negation");
+  Parser parser;
+  ASSERT_EQ(-2, parser.Parse());
+}
