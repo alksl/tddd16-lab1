@@ -43,4 +43,8 @@ TEST(Parser, parse_division) {
   ASSERT_EQ(0.5, parser.Parse());
 }
 
-
+TEST(Parser, parse_exponentiation) {
+  load_expr_to_stdin("exponentiation");
+  Parser parser;
+  ASSERT_EQ(8.0, parser.Parse());
+}

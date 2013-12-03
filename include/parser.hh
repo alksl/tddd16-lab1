@@ -25,6 +25,7 @@ private:
     void ParseTerm();
     void ParseTermCont();
     void ParseFactor();
+    void ParseBase();
 
     Token ScanToken();
     void PutBack(Token token);

@@ -1,3 +1,4 @@
+#include <math.h>
 #include <parser.hh>
 
 
@@ -99,6 +100,21 @@ void Parser::ParseTermCont() {
 }
 
 void Parser::ParseFactor() {
+  ParseBase();
+
+  Token token = ScanToken();
+  if(token.type == kPower) {
+    double base = value;
+    ParseExpression();
+    value = pow(base, value);
+    return;
+  }
+
+  // Only Base was matched
+  PutBack(token);
+}
+
+void Parser::ParseBase() {
   Token token = ScanToken();
   if(token.type == kNumber) {
     value =  token.numberValue;
