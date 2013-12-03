@@ -16,7 +16,7 @@ void load_expr_to_stdin(std::string expression) {
 TEST(Parser, parse_empty_program) {
   load_expr_to_stdin("empty_program");
   Parser parser;
-  ASSERT_EQ(0.0, parser.Parse());
+  ASSERT_THROW(parser.Parse(), ParserEndOfFile);
 }
 
 TEST(Parser, parse_addition) {
