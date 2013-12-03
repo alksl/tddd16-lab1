@@ -1,25 +1,9 @@
 #include <math.h>
 #include <parser.hh>
 
-
-//
-// The trace class needs a class variable. This is it
-//
-
-int Trace::indent = 0;
-
-
-//
-// Parse should be the entry point to your parser class. It will be
-// called by the main program, which you also have to write.
-//
-
 double Parser::Parse(void)
 {
-    Trace       x("Parse");     // Trace execution of Parse
-    double      val;            // Value of a statement
-
-    value = -1;
+    value = 0.0;
     ParseStatement();
 
     return value;

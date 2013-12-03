@@ -42,36 +42,6 @@ private:
     Token bufferd_token;
 };
 
-class Trace
-{
-    static int indent;
-    char *name;
-
-public:
-    Trace(char *s)
-    {
-        name = s;
-        std::cerr.width(indent);
-        std::cerr << " ";
-        std::cerr << "--> " << name << '\n' << std::flush;
-        indent += 4;
-    };
-
-    ~Trace()
-    {
-        indent -= 4;
-        std::cerr.width(indent);
-        std::cerr << "";
-        std::cerr << "<-- " << name << '\n' << std::flush;
-    };
-};
-
-//
-// Two error classes that you may find useful. You can thrown
-// ParserError to signal an error in parsing and ParserEndOfFile to
-// signal an end of file. There are other alternatives to error
-// reporting that may be more convenient.
-//
 
 class ParserError : public std::runtime_error{
 public:
