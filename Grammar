@@ -8,6 +8,8 @@ expr  ->  expr + expr
           expr ^ expr
           - expr
           ( expr )
-          id ( expr )
-          id
+          id ID
           num
+
+ID    ->  ( expr )
+          epsilon
