@@ -9,8 +9,8 @@
 #ifndef KOMP_LABONE_H
 #define KOMP_LABONE_H
 
-#include <iostream.h>
-#include "lex.hh"
+#include <iostream>
+#include <lex.hh>
 
 
 class Parser
@@ -29,18 +29,18 @@ public:
     Trace(char *s)
     {
         name = s;
-        cerr.width(indent);
-        cerr << " ";
-        cerr << "--> " << name << '\n' << flush;
+        std::cerr.width(indent);
+        std::cerr << " ";
+        std::cerr << "--> " << name << '\n' << std::flush;
         indent += 4;
     };
 
     ~Trace()
     {
         indent -= 4;
-        cerr.width(indent);
-        cerr << "";
-        cerr << "<-- " << name << '\n' << flush;
+        std::cerr.width(indent);
+        std::cerr << "";
+        std::cerr << "<-- " << name << '\n' << std::flush;
     };
 };
 

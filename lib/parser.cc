@@ -1,4 +1,4 @@
-#include "lab1.hh"
+#include <parser.hh>
 
 
 //
@@ -36,7 +36,7 @@ double Parser::Parse(void)
 void Parser::Recover(void)
 {
 
-    cerr << "Error recovery.\n" << flush;
+    std::cerr << "Error recovery.\n" << std::flush;
 
     /* --- Your code here ---
      *
