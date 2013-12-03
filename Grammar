@@ -1,12 +1,18 @@
 stmt  ->  expr eol stmt
           eol
 
-expr  ->  expr + expr
-          expr - expr
-          expr * expr
-          expr / expr
-          expr ^ expr
-          - expr
+expr  ->  expr + term
+          expr - term
+          term
+
+term  ->  term * factor
+          term / factor
+          factor
+
+factor  ->  base ^ expr
+            base
+
+base  ->  - expr
           ( expr )
           id ID
           num
