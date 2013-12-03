@@ -52,5 +52,11 @@ TEST(Parser, parse_exponentiation) {
 TEST(Parser, parse_negation) {
   load_expr_to_stdin("negation");
   Parser parser;
-  ASSERT_EQ(-2, parser.Parse());
+  ASSERT_EQ(-2.0, parser.Parse());
+}
+
+TEST(Parser, parse_parenthesised_expression) {
+  load_expr_to_stdin("parenthesised_expression");
+  Parser parser;
+  ASSERT_EQ(4.0, parser.Parse());
 }

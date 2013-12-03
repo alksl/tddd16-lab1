@@ -121,6 +121,13 @@ void Parser::ParseBase() {
     ParseExpression();
     value = -1*value;
     return;
+  } else if(token.type == kLeftParen) {
+    ParseExpression();
+    Token r_paren = ScanToken();
+    if(r_paren.type != kRightParen) {
+      throw ParserError("Expectet RightParen");
+    }
+    return;
   } else if(token.type == kNumber) {
     value =  token.numberValue;
     return;
