@@ -66,3 +66,9 @@ TEST(Parser, parse_identifier) {
   Parser parser;
   ASSERT_EQ(3.14159265,parser.Parse());
 }
+
+TEST(Parser, parse_function_call) {
+  load_expr_to_stdin("function_call");
+  Parser parser;
+  ASSERT_EQ(1.0, parser.Parse());
+}

@@ -123,13 +123,10 @@ void Parser::ParseBase() {
     return;
   } else if(token.type == kLeftParen) {
     ParseExpression();
-    Token r_paren = ScanToken();
-    if(r_paren.type != kRightParen) {
-      throw ParserError("Expectet RightParen");
-    }
+    AssertRightParen();
     return;
   } else if(token.type == kIdentifier) {
-    value = LookupIdentifier(token.symbolValue);
+    ParseIdentifier(token.symbolValue);
     return;
   }else if(token.type == kNumber) {
     value =  token.numberValue;
@@ -139,6 +136,21 @@ void Parser::ParseBase() {
   throw ParserError("Expected number");
 }
 
+void Parser::ParseIdentifier(std::string identifier) {
+  Token token = ScanToken();
+
+  if(token.type == kLeftParen) {
+    ParseExpression();
+    AssertRightParen();
+    value = DoFunctionCall(identifier, value);
+    return;
+  }
+
+  // Match epsilon
+  value = LookupIdentifier(identifier);
+  PutBack(token);
+}
+
 double Parser::LookupIdentifier(std::string identifier) {
   if(identifier == "pi") {
     return 3.14159265;
@@ -146,6 +158,21 @@ double Parser::LookupIdentifier(std::string identifier) {
 
   throw ParserError("LookupIdentifier could not match identifier");
 }
+
+double Parser::DoFunctionCall(std::string identifier, double arg) {
+  if(identifier == "log") {
+    return log10(arg);
+  }
+}
+
+void Parser::AssertRightParen() {
+  Token r_paren = ScanToken();
+  if(r_paren.type != kRightParen) {
+    throw ParserError("Expectet RightParen");
+  }
+}
+
+
 Token Parser::ScanToken() {
   if(have_bufferd_token) {
     have_bufferd_token = false;

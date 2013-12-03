@@ -26,8 +26,12 @@ private:
     void ParseTermCont();
     void ParseFactor();
     void ParseBase();
+    void ParseIdentifier(std::string identifier);
 
     double LookupIdentifier(std::string identifier);
+    double DoFunctionCall(std::string identifier, double arg);
+
+    void AssertRightParen();
 
     Token ScanToken();
     void PutBack(Token token);
