@@ -60,3 +60,9 @@ TEST(Parser, parse_parenthesised_expression) {
   Parser parser;
   ASSERT_EQ(4.0, parser.Parse());
 }
+
+TEST(Parser, parse_identifier) {
+  load_expr_to_stdin("identifier");
+  Parser parser;
+  ASSERT_EQ(3.14159265,parser.Parse());
+}

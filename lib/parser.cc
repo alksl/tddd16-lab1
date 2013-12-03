@@ -128,7 +128,10 @@ void Parser::ParseBase() {
       throw ParserError("Expectet RightParen");
     }
     return;
-  } else if(token.type == kNumber) {
+  } else if(token.type == kIdentifier) {
+    value = LookupIdentifier(token.symbolValue);
+    return;
+  }else if(token.type == kNumber) {
     value =  token.numberValue;
     return;
   }
@@ -136,6 +139,13 @@ void Parser::ParseBase() {
   throw ParserError("Expected number");
 }
 
+double Parser::LookupIdentifier(std::string identifier) {
+  if(identifier == "pi") {
+    return 3.14159265;
+  }
+
+  throw ParserError("LookupIdentifier could not match identifier");
+}
 Token Parser::ScanToken() {
   if(have_bufferd_token) {
     have_bufferd_token = false;

@@ -27,6 +27,8 @@ private:
     void ParseFactor();
     void ParseBase();
 
+    double LookupIdentifier(std::string identifier);
+
     Token ScanToken();
     void PutBack(Token token);
 
