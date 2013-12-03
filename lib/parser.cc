@@ -133,6 +133,8 @@ void Parser::ParseIdentifier(std::string identifier) {
 double Parser::LookupIdentifier(std::string identifier) {
   if(identifier == "pi") {
     return 3.14159265;
+  } else if(identifier == "e") {
+    return 2.71828183;
   }
 
   throw ParserError("LookupIdentifier could not match identifier");

@@ -61,10 +61,16 @@ TEST(Parser, parse_parenthesised_expression) {
   ASSERT_EQ(4.0, parser.Parse());
 }
 
-TEST(Parser, parse_identifier) {
-  load_expr_to_stdin("identifier");
+TEST(Parser, parse_pi) {
+  load_expr_to_stdin("pi");
   Parser parser;
   ASSERT_EQ(3.14159265,parser.Parse());
+}
+
+TEST(Parser, parse_e) {
+  load_expr_to_stdin("e");
+  Parser parser;
+  ASSERT_EQ(2.71828183, parser.Parse());
 }
 
 TEST(Parser, parse_function_call) {
