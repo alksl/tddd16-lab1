@@ -20,3 +20,9 @@ add_executable(parser_test
 )
 set_target_properties(parser_test PROPERTIES COMPILE_DEFINITIONS "SOURCE_DIR=\"${CMAKE_SOURCE_DIR}\"")
 target_link_libraries(parser_test ${CORELIBS} gtest gtest_main)
+
+add_executable(interpreter
+  lib/parser.cc
+  lib/lex.cc
+  lib/main.cc
+)

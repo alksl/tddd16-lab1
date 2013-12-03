@@ -1,8 +1,7 @@
-#include <iostream.h>
+#include <iostream>
 #include <stdlib.h>
 
-#include "lab1.hh"
-#include "lex.hh"
+#include <parser.hh>
 
 int main(void)
 {
@@ -13,13 +12,13 @@ int main(void)
     {
         try
         {
-            cout << "Expression: " << flush;
+            std::cout << "Expression: " << std::flush;
             val = parser.Parse();
-            cout << "Result:     " << val << '\n' << flush;
+            std::cout << "Result:     " << val << '\n' << std::flush;
         }
         catch (ScannerError& e)
         {
-            cerr << e << '\n' << flush;
+            std::cerr << e << '\n' << std::flush;
             parser.Recover();
         }
         catch (ParserError)
@@ -28,7 +27,7 @@ int main(void)
         }
         catch (ParserEndOfFile)
         {
-            cerr << "End of file\n" << flush;
+            std::cerr << "End of file\n" << std::flush;
             exit(0);
         }
     }

@@ -28,8 +28,7 @@ double Parser::Parse(void)
 void Parser::ParseStatement() {
   Token token = ScanToken();
   if(token.type == kEndMark) {
-    std::cout << "End of file";
-    value = 0.0;
+    throw ParserEndOfFile();
     return;
   }
 
@@ -38,10 +37,6 @@ void Parser::ParseStatement() {
   double expr_val = value;
   token = ScanToken();
   if(token.type == kEndOfLine) {
-    ParseStatement();
-    if(value != 0.0) {
-      return;
-    }
     value = expr_val;
     return;
   }
