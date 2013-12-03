@@ -12,3 +12,11 @@ add_executable(lex_test
 )
 set_target_properties(lex_test PROPERTIES COMPILE_DEFINITIONS "SOURCE_DIR=\"${CMAKE_SOURCE_DIR}\"")
 target_link_libraries(lex_test ${CORELIBS} gtest gtest_main)
+
+add_executable(parser_test
+  test/parser_test.cc
+  lib/parser.cc
+  lib/lex.cc
+)
+set_target_properties(parser_test PROPERTIES COMPILE_DEFINITIONS "SOURCE_DIR=\"${CMAKE_SOURCE_DIR}\"")
+target_link_libraries(parser_test ${CORELIBS} gtest gtest_main)
