@@ -1,5 +1,5 @@
 stmt  ->  expr eol stmt
-          eol
+          eof
 
 expr  ->  term expr'
 
