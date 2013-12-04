@@ -210,23 +210,9 @@ void Parser::PutBack(Token token) {
 
 void Parser::Recover(void)
 {
-
-    std::cerr << "Error recovery.\n" << std::flush;
-
-    /* --- Your code here ---
-     *
-     * Error recovery routine
-     *
-     * Unless you come up with something better, this function should
-     * scan tokens until it sees the end of line or end of file.
-     * Parsing may be resumed at that point. This means that if an end
-     * of line token caused the error, this routine doesn't need to do
-     * anything.
-     *
-     * Be sure not to scan more tokens than necessary, or it won't be
-     * possible to resume parsing.
-     */
-
-    /* --- End your code --- */
+  Token token;
+  do {
+    token = ScanToken();
+  } while( token.type != kEndOfLine);
 }
 

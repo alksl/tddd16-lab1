@@ -21,6 +21,15 @@ TEST(Parser, parse_empty_program) {
   ASSERT_THROW(parser.Parse(), ParserEndOfFile);
 }
 
+TEST(Parser, parse_incorrect_line_and_recover) {
+  load_expr_to_stdin("incorrect_program");
+  Parser parser;
+  ASSERT_THROW(parser.Parse(), ParserError);
+
+  parser.Recover();
+  ASSERT_EQ(2.0, parser.Parse());
+}
+
 TEST(Parser, parse_addition) {
   load_expr_to_stdin("addition");
   Parser parser;
