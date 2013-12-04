@@ -33,6 +33,12 @@ TEST(Parser, parse_subtraction) {
   ASSERT_EQ(1.0, parser.Parse());
 }
 
+TEST(Parser, subtraction_left_associativity) {
+  load_expr_to_stdin("subtraction_left_associativity");
+  Parser parser;
+  ASSERT_EQ(-4.0, parser.Parse());
+}
+
 TEST(Parser, parse_multiplication) {
   load_expr_to_stdin("multiplication");
   Parser parser;
@@ -45,10 +51,22 @@ TEST(Parser, parse_division) {
   ASSERT_EQ(0.5, parser.Parse());
 }
 
+TEST(Parser, division_left_associativity) {
+  load_expr_to_stdin("division_left_associativity");
+  Parser parser;
+  ASSERT_NEAR(0.666, parser.Parse(), ABS_ERROR);
+}
+
 TEST(Parser, parse_exponentiation) {
   load_expr_to_stdin("exponentiation");
   Parser parser;
   ASSERT_EQ(8.0, parser.Parse());
+}
+
+TEST(Parser, exponetiation_right_associativity) {
+  load_expr_to_stdin("exponentiation_right_associativity");
+  Parser parser;
+  ASSERT_EQ(32.0, parser.Parse());
 }
 
 TEST(Parser, parse_negation) {

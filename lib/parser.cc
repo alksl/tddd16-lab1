@@ -39,14 +39,13 @@ void Parser::ParseExpressionCont() {
 
   if(token.type == kPlus) {
     ParseTerm();
-    ParseExpressionCont();
     value = saved_value + value;
-
+    ParseExpressionCont();
     return;
   } else if(token.type == kMinus) {
     ParseTerm();
-    ParseExpressionCont();
     value = saved_value - value;
+    ParseExpressionCont();
     return;
   }
 
@@ -65,13 +64,13 @@ void Parser::ParseTermCont() {
 
   if(token.type == kTimes) {
     ParseFactor();
-    ParseTermCont();
     value = saved_value * value;
+    ParseTermCont();
     return;
   } else if(token.type == kDivide) {
     ParseFactor();
-    ParseTermCont();
     value = saved_value / value;
+    ParseTermCont();
     return;
   }
 
