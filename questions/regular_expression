@@ -1,0 +1,8 @@
+# num are the regular expression for the numeric constant
+# and d are a helper for denoting digits.
+
+# Spaces are added for better readabilty and should not be
+# interpreted as the reqular expression
+
+d     -> [0-9]
+num   -> (d+ . d*|d* . d+|d+)([Ee] ([+-)? d+)?
