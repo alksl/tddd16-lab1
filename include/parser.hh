@@ -1,11 +1,3 @@
-//
-// parser.hh
-//
-// Skeleton header file for your parser class. You will probably need more
-// methods and instance variables in the parser class.
-//
-
-
 #ifndef KOMP_LABONE_H
 #define KOMP_LABONE_H
 

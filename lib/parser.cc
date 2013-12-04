@@ -194,7 +194,6 @@ Token Parser::ScanToken() {
   }
 
   Token token = scanner.Scan();
-  std::cout << "Scanned token: " << token << std::endl;
   return token;
 }
 
