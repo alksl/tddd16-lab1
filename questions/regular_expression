@@ -5,4 +5,4 @@
 # interpreted as the reqular expression
 
 d     -> [0-9]
-num   -> (d+ . d*|d* . d+|d+)([Ee] ([+-)? d+)?
+num   -> (d+ (. d*)?|.? d+)([Ee] ([+-])? d+)?
