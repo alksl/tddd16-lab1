@@ -1,0 +1,25 @@
+digraph {
+
+  start [ shape = "plaintext", label = "start" ];
+  start -> S0
+
+  S1 [ shape = "doublecircle" ];
+  S4 [ shape = "doublecircle" ];
+  S5 [ shape = "doublecircle" ];
+  S6 [ shape = "doublecircle" ];
+
+  S0 -> S1 [ label = "d"    ];
+  S0 -> S2 [ label = "dot"  ];
+  S1 -> S1 [ label = "d"    ];
+  S1 -> S3 [ label = "exp"  ];
+  S1 -> S4 [ label = "dot"  ];
+  S2 -> S5 [ label = "d"    ];
+  S3 -> S6 [ label = "d"    ];
+  S3 -> S7 [ label = "sign" ];
+  S4 -> S3 [ label = "exp"  ];
+  S4 -> S4 [ label = "d"    ];
+  S5 -> S3 [ label = "exp"  ];
+  S5 -> S5 [ label = "d"    ];
+  S6 -> S6 [ label = "d"    ];
+  S7 -> S6 [ label = "d"    ];
+}

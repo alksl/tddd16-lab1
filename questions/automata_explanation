@@ -1,0 +1,4 @@
+To implement the scanner that corresponds with the DFA could be
+implemented by either a statemachine that simulates the DFA or
+by a series of conditionals that act upon the character read
+and the current state.
