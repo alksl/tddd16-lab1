@@ -26,3 +26,6 @@ add_executable(interpreter
   lib/lex.cc
   lib/main.cc
 )
+
+add_custom_target(automata.pdf ALL
+  COMMAND dot -Tpdf ${CMAKE_SOURCE_DIR}/questions/automata.dot > ${CMAKE_BINARY_DIR}/automata.pdf)
