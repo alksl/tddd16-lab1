@@ -155,3 +155,9 @@ TEST(Parser, parse_arctan) {
   Parser parser;
   ASSERT_NEAR(0.785398, parser.Parse(), ABS_ERROR);
 }
+
+TEST(Parser, parse_complex) {
+  load_expr_to_stdin("complex");
+  Parser parser;
+  ASSERT_EQ(6.0, parser.Parse());
+}
